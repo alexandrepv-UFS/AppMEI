@@ -2,7 +2,10 @@
 package Sistema;
 
 import Arquivos.LeitorArquivo;
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -12,6 +15,7 @@ public class PrincipalApp {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
@@ -19,10 +23,14 @@ public class PrincipalApp {
         String pasta = "Clientes";
         String path = "Clientes";
         String nome = "Clientes.txt";
-        String lendo = "Clientes\\Clientes.txt";
+        String lendo = "Clientes" + File.separator+ "Clientes.txt";
         larq.criarDiretorio(pasta);
         larq.criarArquivos(path, nome);
-        larq.puxarDados(lendo);
+        List<Cliente> cadClientes = new ArrayList<>(larq.importarDados(lendo));
+        cadClientes.forEach(cli -> {
+            System.out.println(cli);
+        });
+        
     }
     
 }

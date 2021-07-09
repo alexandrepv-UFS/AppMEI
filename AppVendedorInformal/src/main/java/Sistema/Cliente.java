@@ -16,14 +16,14 @@ public class Cliente {
     private boolean ativo;
     private Date dataCadastro;
     private Date inativacao;
-    private float saldo;
+    private double saldo;
 
     public Cliente() {
     }
 
     
     
-    public Cliente(String pseudonimo, String nome, Endereco endereco, String telefone, double CPF, boolean ativo, Date dataCadastro, Date inativacao, float saldo) {
+    public Cliente(String pseudonimo, String nome, Endereco endereco, String telefone, double CPF, boolean ativo, Date dataCadastro, Date inativacao, double saldo) {
         this.pseudonimo = pseudonimo;
         this.nome = nome;
         this.endereco = endereco;
@@ -99,12 +99,17 @@ public class Cliente {
         this.inativacao = inativacao;
     }
 
-    public float getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(float saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "pseudonimo=" + pseudonimo + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone + ", CPF=" + CPF + ", ativo=" + ativo + ", dataCadastro=" + dataCadastro + ", inativacao=" + inativacao + ", saldo=" + saldo + '}';
     }
     
     
