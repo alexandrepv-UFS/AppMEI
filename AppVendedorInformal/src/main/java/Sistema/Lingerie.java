@@ -7,8 +7,27 @@ package Sistema;
 
 /**
  *
- * @author danie
+ * @author Daniel Santos Rodrigues
  */
-public class Lingerie {
+public class Lingerie extends Produto{
+    private String tamanho, cor;
+
+    
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+    
     
 }
