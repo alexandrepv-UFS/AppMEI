@@ -9,7 +9,7 @@ package Sistema;
  *
  * @author Daniel Santos Rodrigues
  */
-public class CosmeticoNatura {
+public class CosmeticoNatura extends Produto{
     private String categoria, marca, tipo;
 
     
