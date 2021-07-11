@@ -11,7 +11,12 @@ package Sistema;
  */
 public class Lingerie extends Produto{
     private String tamanho, cor;
-
+    
+    
+    public Lingerie(String tamanho, String cor) {
+        this.tamanho = tamanho;
+        this.cor = cor;
+    }
     
     public void setTamanho(String tamanho) {
         this.tamanho = tamanho;

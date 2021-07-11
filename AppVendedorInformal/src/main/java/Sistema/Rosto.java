@@ -13,6 +13,15 @@ public class Rosto extends CosmeticoNatura{
     private String fragancia, familiaOlfativa, tipoTratamento;
 
     
+    public Rosto(String categoria, String marca, String tipo, String fragancia, String familiaOlfativa, String tipoTratamento) {
+        this.setCategoria(categoria);
+        this.setMarca(marca);
+        this.setTipo(tipo);
+        this.setFragancia(fragancia);
+        this.setFamiliaOlfativa(familiaOlfativa);
+        this.setTipoTratamento(tipoTratamento);
+    }
+    
     public void setFragancia(String fragancia) {
         this.fragancia = fragancia;
     }

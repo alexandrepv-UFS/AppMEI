@@ -11,4 +11,10 @@ package Sistema;
  */
 public class Maquiagem extends CosmeticoNatura{
     // herança pobre até o momento
+    
+    public Maquiagem(String categoria, String marca, String tipo) {
+        this.setCategoria(categoria);
+        this.setMarca(marca);
+        this.setTipo(tipo);
+    }
 }

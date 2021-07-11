@@ -13,6 +13,15 @@ public class Perfumaria extends CosmeticoNatura{
     private String fragancia, familiaOlfativa;
 
     
+    public Perfumaria(String categoria, String marca, String tipo, String fragancia, String familiaOlfativa) {
+        this.setCategoria(categoria);
+        this.setMarca(marca);
+        this.setTipo(tipo);
+        this.setFragancia(fragancia);
+        this.setFamiliaOlfativa(familiaOlfativa);
+        
+    }
+    
     public void setFragancia(String fragancia) {
         this.fragancia = fragancia;
     }
