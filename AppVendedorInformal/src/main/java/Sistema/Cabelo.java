@@ -13,7 +13,8 @@ public class Cabelo extends CosmeticoNatura{
     private String fragancia, familiaOlfativa, tipoCabelo;
 
     
-    public Cabelo(String categoria, String marca, String tipo, String fragancia, String familiaOlfativa, String tipoCabelo) {
+    public Cabelo(String categoria, String marca, String tipo, String fragancia
+            , String familiaOlfativa, String tipoCabelo) {
         this.setCategoria(categoria);
         this.setMarca(marca);
         this.setTipo(tipo);

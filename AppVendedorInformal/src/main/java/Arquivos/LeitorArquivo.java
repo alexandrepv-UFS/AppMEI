@@ -2,6 +2,7 @@ package Arquivos;
 
 import Sistema.Cliente;
 import Sistema.Endereco;
+import Sistema.Produto;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -52,7 +53,7 @@ public class LeitorArquivo {
         File file = new File(path,nome);
         file.createNewFile();
     }
-    public List importarDados(String path){
+    public List importarClientes(String path){
         
         List<Cliente> ListaClientes = new ArrayList<Cliente>(); 
         
@@ -96,5 +97,41 @@ public class LeitorArquivo {
            return ListaClientes; 
     }
     
+    public List importarProdutos(String path){
     
+        List<Produto> ListaProdutos = new ArrayList<Produto>();
+        
+        try (BufferedReader leitorBuff = new BufferedReader(new FileReader(path))){
+            
+            String line = leitorBuff.readLine();
+            line = leitorBuff.readLine();
+            
+             while (line != null){
+                 
+                String[] celulas = line.split(";");
+                Double IDProduto = Double.parseDouble(celulas[0]);
+                String nome = celulas[1];
+                String publico = celulas[2];
+                String genero = celulas[3];
+                String modelo = celulas[4];
+                String fabricante = celulas[5];
+                int quantidade = Integer.parseInt(celulas[6]);
+                Double precoVenda = Double.parseDouble(celulas[7]);
+                //parei aqui 
+                if (fabricante.equalsIgnoreCase("natura")) {
+                     
+                 }
+                line = leitorBuff.readLine();
+                
+                Produto pro = new Produto();
+                ListaProdutos.add(pro);
+                
+             }    
+            
+        } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+        }
+        
+        return ListaProdutos;
+    }
 }

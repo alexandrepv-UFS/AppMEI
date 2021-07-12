@@ -11,19 +11,25 @@ package Sistema;
 public class Produto {
     private double IDProduto;
     private String nome, publico, genero, modelo, fabricante;
-    
+    private double precoVenda;
+    private int quantidade;
     public Produto() {
         
     }
     
-    public Produto(double IDProduto, String nome, String publico
-    , String genero, String modelo, String fabricante) {
+    public Produto(double IDProduto, String nome, String publico, String genero,
+            String modelo, String fabricante, int quantidade,
+            Double precoVenda) {
+        
         this.IDProduto = IDProduto;
         this.nome = nome;
         this.publico = publico;
         this.genero = genero;
         this.modelo = modelo;
         this.fabricante = fabricante;
+        this.quantidade = quantidade;
+        this.precoVenda = precoVenda;
+        
     }
     
     public void entradaEstoque(double quantidade) {
@@ -85,6 +91,22 @@ public class Produto {
 
     public String getFabricante() {
         return fabricante;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    
+    public double getPrecoVenda() {
+        return precoVenda;
+    }
+
+    public void setPrecoVenda(double precoVenda) {
+        this.precoVenda = precoVenda;
     }
     
     

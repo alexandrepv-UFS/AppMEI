@@ -28,10 +28,10 @@ public class PrincipalApp {
         larq.criarDiretorio(pasta);
         larq.criarArquivos(path, nome);
         //Objeto com os dados de todos os clientes
-        List<Cliente> cadastrosClientes = new ArrayList<>(larq.importarDados(lendo));
+        List<Cliente> cadastrosClientes = new ArrayList<>(larq.importarClientes(lendo));
         //Objeto para salvar dados em arquivos do tipo txt
         GravadorArquivo save  = new GravadorArquivo(cadastrosClientes);
-        save.salvarDados(cadastrosClientes);
+        save.salvarClientes(cadastrosClientes);
         
         cadastrosClientes.forEach(cli -> {
             System.out.println(cli);
