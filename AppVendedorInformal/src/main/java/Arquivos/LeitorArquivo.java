@@ -1,9 +1,15 @@
 package Arquivos;
 
+import Sistema.Cliente;
+import Sistema.Endereco;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -46,17 +52,48 @@ public class LeitorArquivo {
         File file = new File(path,nome);
         file.createNewFile();
     }
-    public void puxarDados(String path){
+    public List importarDados(String path){
+        
+        List<Cliente> ListaClientes = new ArrayList<Cliente>(); 
+        
         try (BufferedReader leitorBuff = new BufferedReader(new FileReader(path))){
+            
             String line = leitorBuff.readLine();
+            line = leitorBuff.readLine();
             while (line != null){
-                System.out.println(line);
+                
+                String[] celulas = line.split(";");
+                String CPF = celulas[0];
+                String apelido = celulas[1];
+                String nome = celulas[2];
+                Endereco endereco = new Endereco();
+                endereco.setLogradouro(celulas[3]);
+                endereco.setNumero(Integer.parseInt(celulas[4]));
+                endereco.setBairro(celulas[5]);
+                endereco.setCEP(Integer.parseInt(celulas[6]));
+                endereco.setPontoRef(celulas[7]);
+                String telefone = celulas[8];
+                boolean ativo = Boolean.parseBoolean(celulas[9]);
+                
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                
+                Date dataCadastro = formato.parse(celulas[10]);
+                Date inativacao = formato.parse(celulas[11]);
+                
+                
+                double saldo = Double.parseDouble(celulas[12]);
                 line = leitorBuff.readLine();
+                
+                Cliente cli = new Cliente(apelido,nome,endereco,telefone,CPF,ativo,dataCadastro, inativacao, saldo);
+                ListaClientes.add(cli);
             }
+            
+            leitorBuff.close();
+            
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-            
+           return ListaClientes; 
     }
     
     

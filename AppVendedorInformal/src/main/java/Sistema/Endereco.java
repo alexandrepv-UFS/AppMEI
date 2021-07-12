@@ -63,6 +63,13 @@ public class Endereco {
     public void setPontoRef(String pontoRef) {
         this.pontoRef = pontoRef;
     }
+
+    @Override
+    public String toString() {
+        return "Endereco{" + "logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", CEP=" + CEP + ", pontoRef=" + pontoRef + '}';
+    }
+
+    
     
     
 }

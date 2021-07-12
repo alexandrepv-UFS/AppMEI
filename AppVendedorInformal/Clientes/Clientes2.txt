@@ -1,0 +1,2 @@
+Nome;Apelido;Nome;Logradouro;Numero;Bairro;CEP;PontoReferencia;Telefone;Ativo;DataCadastro;Inativacao;Saldo;
+00288844455;Alexandre;Alexandre Pereira Vieira;Rua valfdomiro teofilo;523;Farolandia;49030750;proximo a panificacao santa cecilia;79996277799;true;07/07/2021;08/07/2021;50.0;
