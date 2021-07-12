@@ -12,7 +12,7 @@ public class Cliente {
     private String nome;
     private Endereco endereco;
     private String telefone;
-    private double CPF;
+    private String CPF;
     private boolean ativo;
     private Date dataCadastro;
     private Date inativacao;
@@ -23,7 +23,7 @@ public class Cliente {
 
     
     
-    public Cliente(String pseudonimo, String nome, Endereco endereco, String telefone, double CPF, boolean ativo, Date dataCadastro, Date inativacao, double saldo) {
+    public Cliente(String pseudonimo, String nome, Endereco endereco, String telefone, String CPF, boolean ativo, Date dataCadastro, Date inativacao, double saldo) {
         this.pseudonimo = pseudonimo;
         this.nome = nome;
         this.endereco = endereco;
@@ -67,11 +67,11 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public double getCPF() {
+    public String getCPF() {
         return CPF;
     }
 
-    public void setID(double CPF) {
+    public void setID(String CPF) {
         this.CPF = CPF;
     }
 

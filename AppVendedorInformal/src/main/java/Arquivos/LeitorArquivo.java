@@ -63,7 +63,7 @@ public class LeitorArquivo {
             while (line != null){
                 
                 String[] celulas = line.split(";");
-                Double CPF = Double.parseDouble(celulas[0]);
+                String CPF = celulas[0];
                 String apelido = celulas[1];
                 String nome = celulas[2];
                 Endereco endereco = new Endereco();
@@ -74,9 +74,13 @@ public class LeitorArquivo {
                 endereco.setPontoRef(celulas[7]);
                 String telefone = celulas[8];
                 boolean ativo = Boolean.parseBoolean(celulas[9]);
+                
                 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                
                 Date dataCadastro = formato.parse(celulas[10]);
                 Date inativacao = formato.parse(celulas[11]);
+                
+                
                 double saldo = Double.parseDouble(celulas[12]);
                 line = leitorBuff.readLine();
                 
@@ -84,16 +88,12 @@ public class LeitorArquivo {
                 ListaClientes.add(cli);
             }
             
-            
+            leitorBuff.close();
             
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
            return ListaClientes; 
-    }
-    
-    public void salvarDados(){
-        
     }
     
     
