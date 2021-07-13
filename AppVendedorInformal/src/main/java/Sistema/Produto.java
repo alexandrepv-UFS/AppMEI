@@ -108,6 +108,14 @@ public class Produto {
     public void setPrecoVenda(double precoVenda) {
         this.precoVenda = precoVenda;
     }
+
+    @Override
+    public String toString() {
+        return "Produto{" + "IDProduto=" + IDProduto + ", nome=" + nome + ", publico=" + publico + ", genero=" + genero + ", modelo=" + modelo + ", fabricante=" + fabricante + ", precoVenda=" + precoVenda + ", quantidade=" + quantidade + '}';
+    }
+
+    
+    
     
     
     

@@ -97,68 +97,70 @@ public class LeitorArquivo {
     
     public List importarProdutos(String path){
     
-        List<Produto> ListaProdutos = new ArrayList<Produto>();
+        List<Produto> ListaProdutos = new ArrayList<>();
         
-        try (BufferedReader leitorBuff = new BufferedReader(new FileReader(path))){
+        try (BufferedReader leitorBuf = new BufferedReader(new FileReader(path))){
             
-            String line = leitorBuff.readLine();
-            line = leitorBuff.readLine();
+            String line = leitorBuf.readLine();
+            line = leitorBuf.readLine();
             
              while (line != null){
                  //preenchendo variáveis da classe static
-                String[] celulas = line.split(";");
-                Double IDProduto = Double.parseDouble(celulas[0]);
-                String nome = celulas[1];
-                String publico = celulas[2];
-                String genero = celulas[3];
-                String modelo = celulas[4];
-                String fabricante = celulas[5];
-                int quantidade = Integer.parseInt(celulas[6]);
-                Double precoVenda = Double.parseDouble(celulas[7]);
+                String[] cel = line.split(";");
+                Double IDProduto = Double.parseDouble(cel[0]);
+                String nome = cel[1];
+                String publico = cel[2];
+                String genero = cel[3];
+                String modelo = cel[4];
+                String fabricante = cel[5];
+                int quantidade = Integer.parseInt(cel[6]);
+                Double precoVenda = Double.parseDouble(cel[7]);
                 //preenchendo variaveis de classes finais 
-                String categoria = celulas[8];
-                String marca = celulas[9];
-                String tipo = celulas[10];
-                String fragancia = celulas[11];
-                String familiaOlfativa = celulas[12];
-                String tipoCabelo = celulas[13];
-                String tipoTratamento = celulas[14];
-                String tamanho = celulas[15];
-                String cor = celulas[16];
+                String categoria = cel[8];
+                String marca = cel[9];
+                String tipo = cel[10];
+                String fragancia = cel[11];
+                String familiaOlfativa = cel[12];
+                String tipoCabelo = cel[13];
+                String tipoTratamento = cel[14];
+                String tamanho = cel[15];
+                String cor = cel[16];
                 
+                Produto pro = null;
                 //escolhendo classe para instanciamento
                 if (fabricante.equalsIgnoreCase("diamantes")){
-                    Produto pro = new Lingerie(tamanho, cor,IDProduto, nome, 
+                    pro = new Lingerie(tamanho, cor,IDProduto, nome, 
                              publico, genero, modelo, fabricante, quantidade, 
                              precoVenda);
                 }
                 if (modelo.equalsIgnoreCase("perfumaria")) {
-                     Produto pro = new Perfumaria(fragancia, familiaOlfativa,
+                    pro = new Perfumaria(fragancia, familiaOlfativa,
                      categoria, marca, tipo,IDProduto, nome, publico, genero,
                      modelo, fabricante, quantidade, precoVenda);
                 }
                 if (modelo.equalsIgnoreCase("corpoBanho")) {
-                     Produto pro = new CorpoBanho(fragancia, familiaOlfativa,
+                    pro = new CorpoBanho(fragancia, familiaOlfativa,
                      categoria, marca, tipo,IDProduto, nome, publico, genero,
                      modelo, fabricante, quantidade, precoVenda);
                 }
                 if (modelo.equalsIgnoreCase("cabelo")) {
-                     Produto pro = new Cabelo(fragancia, familiaOlfativa,
+                    pro = new Cabelo(fragancia, familiaOlfativa,
                              tipoCabelo, categoria, marca, tipo,IDProduto, nome,
                              publico, genero, modelo, fabricante, quantidade,
                              precoVenda);
                 }
-                 if (modelo.equalsIgnoreCase("rosto")) {
-                     Produto pro = new Cabelo(fragancia, familiaOlfativa,
+                if (modelo.equalsIgnoreCase("rosto")) {
+                    pro = new Cabelo(fragancia, familiaOlfativa,
                              tipoTratamento, categoria, marca, tipo,IDProduto, nome,
                              publico, genero, modelo, fabricante, quantidade,
                              precoVenda);
-                 }
-                 if (modelo.equalsIgnoreCase("maquiagem")) {
-                     Produto pro = new Maquiagem( categoria, marca, tipo,
+                }
+                if (modelo.equalsIgnoreCase("maquiagem")) {
+                    pro = new Maquiagem( categoria, marca, tipo,
                              IDProduto, nome, publico, genero, modelo,
                              fabricante, quantidade, precoVenda);
-                 }
+                }
+                 line = leitorBuff.readLine();
                 //Produto pro = new Produto();
                 ListaProdutos.add(pro);
                 
@@ -170,4 +172,5 @@ public class LeitorArquivo {
         
         return ListaProdutos;
     }
+    
 }

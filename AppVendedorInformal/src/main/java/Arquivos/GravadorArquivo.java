@@ -83,7 +83,7 @@ public class GravadorArquivo {
                 gravarArquivo.write(String.valueOf(cliente.getSaldo()));
                 gravarArquivo.write(";");
             }    
-            gravarArquivo.close();
+            
             
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
