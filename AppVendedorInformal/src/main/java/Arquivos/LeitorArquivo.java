@@ -105,62 +105,47 @@ public class LeitorArquivo {
             line = leitorBuf.readLine();
             
              while (line != null){
-                 //preenchendo variáveis da classe static
+                 //preenchendo variáveis contidas na classe mãe
                 String[] cel = line.split(";");
                 Double IDProduto = Double.parseDouble(cel[0]);
                 String nome = cel[1];
-                String publico = cel[2];
-                String genero = cel[3];
-                String modelo = cel[4];
-                String fabricante = cel[5];
-                int quantidade = Integer.parseInt(cel[6]);
-                Double precoVenda = Double.parseDouble(cel[7]);
+                int quantidade = Integer.parseInt(cel[2]);
+                Double precoVenda = Double.parseDouble(cel[3]);
                 //preenchendo variaveis de classes finais 
-                String categoria = cel[8];
-                String marca = cel[9];
-                String tipo = cel[10];
-                String fragancia = cel[11];
-                String familiaOlfativa = cel[12];
-                String tipoCabelo = cel[13];
-                String tipoTratamento = cel[14];
-                String tamanho = cel[15];
-                String cor = cel[16];
+                String categoria = cel[4];
+                String marca = cel[5];
+                String tipo = cel[6];
+                String fragancia = cel[7];
+                String familiaOlfativa = cel[8];
+                String tipoCabelo = cel[9];
+                String tipoTratamento = cel[10];
+                
                 
                 Produto pro = null;
                 //escolhendo classe para instanciamento
-                if (fabricante.equalsIgnoreCase("diamantes")){
-                    pro = new Lingerie(tamanho, cor,IDProduto, nome, 
-                             publico, genero, modelo, fabricante, quantidade, 
-                             precoVenda);
+                
+                if (tipo.equalsIgnoreCase("perfumaria")) {
+                    pro = new Perfumaria(fragancia, categoria, marca, tipo, 
+                            familiaOlfativa, IDProduto, nome, quantidade,
+                            precoVenda);
                 }
-                if (modelo.equalsIgnoreCase("perfumaria")) {
-                    pro = new Perfumaria(fragancia, familiaOlfativa,
-                     categoria, marca, tipo,IDProduto, nome, publico, genero,
-                     modelo, fabricante, quantidade, precoVenda);
+                if (tipo.equalsIgnoreCase("corpoBanho")) {
+                    pro = new CorpoBanho(fragancia, categoria, marca, tipo, 
+                            familiaOlfativa, IDProduto, nome, quantidade,
+                            precoVenda);
                 }
-                if (modelo.equalsIgnoreCase("corpoBanho")) {
-                    pro = new CorpoBanho(fragancia, familiaOlfativa,
-                     categoria, marca, tipo,IDProduto, nome, publico, genero,
-                     modelo, fabricante, quantidade, precoVenda);
+                if (tipo.equalsIgnoreCase("cabelo")) {
+                    pro = new Cabelo(tipoCabelo, categoria, marca, tipo,
+                            familiaOlfativa,IDProduto, nome, quantidade,
+                            precoVenda);
                 }
-                if (modelo.equalsIgnoreCase("cabelo")) {
-                    pro = new Cabelo(fragancia, familiaOlfativa,
-                             tipoCabelo, categoria, marca, tipo,IDProduto, nome,
-                             publico, genero, modelo, fabricante, quantidade,
-                             precoVenda);
+                if (tipo.equalsIgnoreCase("rosto")) {
+                    pro = new Cabelo(tipoTratamento, categoria, marca,
+                            tipo,familiaOlfativa, IDProduto, nome,quantidade,
+                            precoVenda);
                 }
-                if (modelo.equalsIgnoreCase("rosto")) {
-                    pro = new Cabelo(fragancia, familiaOlfativa,
-                             tipoTratamento, categoria, marca, tipo,IDProduto, nome,
-                             publico, genero, modelo, fabricante, quantidade,
-                             precoVenda);
-                }
-                if (modelo.equalsIgnoreCase("maquiagem")) {
-                    pro = new Maquiagem( categoria, marca, tipo,
-                             IDProduto, nome, publico, genero, modelo,
-                             fabricante, quantidade, precoVenda);
-                }
-                 line = leitorBuff.readLine();
+                
+                 line = leitorBuf.readLine();
                 //Produto pro = new Produto();
                 ListaProdutos.add(pro);
                 

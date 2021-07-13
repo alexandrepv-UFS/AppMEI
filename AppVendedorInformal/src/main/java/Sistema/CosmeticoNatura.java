@@ -9,17 +9,19 @@ package Sistema;
  *
  * @author Daniel Santos Rodrigues
  */
-public class CosmeticoNatura extends Produto{
-    private String categoria, marca, tipo;
+public abstract class CosmeticoNatura extends Produto{
+    
+    private String categoria, marca, tipo, familiaOlfativa;
 
-    public CosmeticoNatura(String categoria, String marca, String tipo, double IDProduto, String nome, String publico, String genero, String modelo, String fabricante, int quantidade, Double precoVenda) {
-        super(IDProduto, nome, publico, genero, modelo, fabricante, quantidade, precoVenda);
+    public CosmeticoNatura(String categoria, String marca, String tipo, String familiaOlfativa, double IDProduto, String nome, int quantidade, Double precoVenda) {
+        super(IDProduto, nome, quantidade, precoVenda);
         this.categoria = categoria;
         this.marca = marca;
         this.tipo = tipo;
+        this.familiaOlfativa = familiaOlfativa;
     }
 
-
+    
     
     public void setCategoria(String categoria) {
         this.categoria = categoria;
@@ -43,6 +45,14 @@ public class CosmeticoNatura extends Produto{
 
     public String getTipo() {
         return tipo;
+    }
+
+    public String getFamiliaOlfativa() {
+        return familiaOlfativa;
+    }
+
+    public void setFamiliaOlfativa(String familiaOlfativa) {
+        this.familiaOlfativa = familiaOlfativa;
     }
     
     

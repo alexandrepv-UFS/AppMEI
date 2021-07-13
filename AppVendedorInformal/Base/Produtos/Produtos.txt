@@ -1,3 +1,2 @@
-IDProdutos;nome;publico;genero;modelo;fabricante;quantidade;precoVenda;categoria;marca;tipo;fragancia;familiaOlfativa;tipoCabelo;tipoTratamento;tamanho;cor;
-1;kaiak Pulso;adulto;masculino;perfumaria;natura;5;126.90;perfumaria masculina;kaiak;perfumaria;Aromatico;null;null;null;null;
-2;calcinha;adulto;feminino;lingerie;diamantes;3;90.00;null;null;null;null;null;null;null;p;azul;
+IDProdutos;nome;quantidade;precoVenda;categoria;marca;tipo;fragancia;familiaOlfativa;tipoCabelo;tipoTratamento;
+1;kaiak Pulso;5;126.90;perfumaria masculina;kaiak;perfumaria;Aromatico;null;null;null;

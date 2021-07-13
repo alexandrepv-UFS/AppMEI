@@ -8,25 +8,20 @@ package Sistema;
  *
  * @author Daniel Santos Rodrigues
  */
-public class Produto {
+public abstract class Produto {
     private double IDProduto;
-    private String nome, publico, genero, modelo, fabricante;
+    private String nome;
     private double precoVenda;
     private int quantidade;
     public Produto() {
         
     }
     
-    public Produto(double IDProduto, String nome, String publico, String genero,
-            String modelo, String fabricante, int quantidade,
+    public Produto(double IDProduto, String nome, int quantidade,
             Double precoVenda) {
         
         this.IDProduto = IDProduto;
         this.nome = nome;
-        this.publico = publico;
-        this.genero = genero;
-        this.modelo = modelo;
-        this.fabricante = fabricante;
         this.quantidade = quantidade;
         this.precoVenda = precoVenda;
         
@@ -61,38 +56,6 @@ public class Produto {
         return nome;
     }
 
-    public void setPublico(String publico) {
-        this.publico = publico;
-    }
-
-    public String getPublico() {
-        return publico;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
-    }
-
-    public String getFabricante() {
-        return fabricante;
-    }
-
     public int getQuantidade() {
         return quantidade;
     }
@@ -111,8 +74,10 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "IDProduto=" + IDProduto + ", nome=" + nome + ", publico=" + publico + ", genero=" + genero + ", modelo=" + modelo + ", fabricante=" + fabricante + ", precoVenda=" + precoVenda + ", quantidade=" + quantidade + '}';
+        return "Produto{" + "IDProduto=" + IDProduto + ", nome=" + nome + ", precoVenda=" + precoVenda + ", quantidade=" + quantidade + '}';
     }
+
+    
 
     
     

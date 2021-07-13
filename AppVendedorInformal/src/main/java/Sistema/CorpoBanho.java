@@ -9,31 +9,31 @@ package Sistema;
  *
  * @author Daniel Santos Rodrigues
  */
-public class CorpoBanho extends CosmeticoNatura{
-    private String fragancia, familiaOlfativa;
+public final class CorpoBanho extends CosmeticoNatura{
+    
+    private String fragancia;
 
-    public CorpoBanho(String fragancia, String familiaOlfativa, String categoria, String marca, String tipo, double IDProduto, String nome, String publico, String genero, String modelo, String fabricante, int quantidade, Double precoVenda) {
-        super(categoria, marca, tipo, IDProduto, nome, publico, genero, modelo, fabricante, quantidade, precoVenda);
-        this.fragancia = fragancia;
-        this.familiaOlfativa = familiaOlfativa;
-    }
-    
-    
-    public void setFragancia(String fragancia) {
+    public CorpoBanho(String fragancia, String categoria, String marca, 
+            String tipo, String familiaOlfativa, double IDProduto, String nome,
+            int quantidade, Double precoVenda) {
+        super(categoria, marca, tipo, familiaOlfativa, IDProduto, nome,
+                quantidade, precoVenda);
         this.fragancia = fragancia;
     }
 
+    
+
+    
     public String getFragancia() {
         return fragancia;
     }
 
-    public void setFamiliaOlfativa(String familiaOlfativa) {
-        this.familiaOlfativa = familiaOlfativa;
-    }
-
-    public String getFamiliaOlfativa() {
-        return familiaOlfativa;
+    public void setFragancia(String fragancia) {
+        this.fragancia = fragancia;
     }
     
+    
+    
+   
     
 }
