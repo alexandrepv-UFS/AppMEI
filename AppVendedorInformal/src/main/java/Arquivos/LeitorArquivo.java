@@ -1,8 +1,6 @@
 package Arquivos;
 
-import Sistema.Cliente;
-import Sistema.Endereco;
-import Sistema.Produto;
+import Sistema.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -107,7 +105,7 @@ public class LeitorArquivo {
             line = leitorBuff.readLine();
             
              while (line != null){
-                 
+                 //preenchendo variáveis da classe static
                 String[] celulas = line.split(";");
                 Double IDProduto = Double.parseDouble(celulas[0]);
                 String nome = celulas[1];
@@ -117,13 +115,51 @@ public class LeitorArquivo {
                 String fabricante = celulas[5];
                 int quantidade = Integer.parseInt(celulas[6]);
                 Double precoVenda = Double.parseDouble(celulas[7]);
-                //parei aqui 
-                if (fabricante.equalsIgnoreCase("natura")) {
-                     
-                 }
-                line = leitorBuff.readLine();
+                //preenchendo variaveis de classes finais 
+                String categoria = celulas[8];
+                String marca = celulas[9];
+                String tipo = celulas[10];
+                String fragancia = celulas[11];
+                String familiaOlfativa = celulas[12];
+                String tipoCabelo = celulas[13];
+                String tipoTratamento = celulas[14];
+                String tamanho = celulas[15];
+                String cor = celulas[16];
                 
-                Produto pro = new Produto();
+                //escolhendo classe para instanciamento
+                if (fabricante.equalsIgnoreCase("diamantes")){
+                    Produto pro = new Lingerie(tamanho, cor,IDProduto, nome, 
+                             publico, genero, modelo, fabricante, quantidade, 
+                             precoVenda);
+                }
+                if (modelo.equalsIgnoreCase("perfumaria")) {
+                     Produto pro = new Perfumaria(fragancia, familiaOlfativa,
+                     categoria, marca, tipo,IDProduto, nome, publico, genero,
+                     modelo, fabricante, quantidade, precoVenda);
+                }
+                if (modelo.equalsIgnoreCase("corpoBanho")) {
+                     Produto pro = new CorpoBanho(fragancia, familiaOlfativa,
+                     categoria, marca, tipo,IDProduto, nome, publico, genero,
+                     modelo, fabricante, quantidade, precoVenda);
+                }
+                if (modelo.equalsIgnoreCase("cabelo")) {
+                     Produto pro = new Cabelo(fragancia, familiaOlfativa,
+                             tipoCabelo, categoria, marca, tipo,IDProduto, nome,
+                             publico, genero, modelo, fabricante, quantidade,
+                             precoVenda);
+                }
+                 if (modelo.equalsIgnoreCase("rosto")) {
+                     Produto pro = new Cabelo(fragancia, familiaOlfativa,
+                             tipoTratamento, categoria, marca, tipo,IDProduto, nome,
+                             publico, genero, modelo, fabricante, quantidade,
+                             precoVenda);
+                 }
+                 if (modelo.equalsIgnoreCase("maquiagem")) {
+                     Produto pro = new Maquiagem( categoria, marca, tipo,
+                             IDProduto, nome, publico, genero, modelo,
+                             fabricante, quantidade, precoVenda);
+                 }
+                //Produto pro = new Produto();
                 ListaProdutos.add(pro);
                 
              }    

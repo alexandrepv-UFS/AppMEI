@@ -12,6 +12,14 @@ package Sistema;
 public class CosmeticoNatura extends Produto{
     private String categoria, marca, tipo;
 
+    public CosmeticoNatura(String categoria, String marca, String tipo, double IDProduto, String nome, String publico, String genero, String modelo, String fabricante, int quantidade, Double precoVenda) {
+        super(IDProduto, nome, publico, genero, modelo, fabricante, quantidade, precoVenda);
+        this.categoria = categoria;
+        this.marca = marca;
+        this.tipo = tipo;
+    }
+
+
     
     public void setCategoria(String categoria) {
         this.categoria = categoria;
