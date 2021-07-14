@@ -5,8 +5,14 @@
  */
 package Arquivos;
 
+import Sistema.Cabelo;
 import Sistema.Cliente;
+import Sistema.CorpoBanho;
+import Sistema.CosmeticoNatura;
+import Sistema.Produto;
 import Sistema.Vendas;
+import Sistema.Perfumaria;
+import Sistema.Rosto;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -89,6 +95,58 @@ public class GravadorArquivo {
             System.out.println("Error: " + e.getMessage());
         }
     }
+    
+    public void salvarProdutos(List<Produto> produtos){
+        String path = "Base" + File.separator + "Produtos" + File.separator 
+                + "Produtos2.txt";
+        try (BufferedWriter gravarProd = new BufferedWriter(new FileWriter(path))){
+            gravarProd.write("IDProdutos;nome;quantidade;precoVenda;categoria;"
+                    + "marca;tipo;fragancia;familiaOlfativa;tipoCabelo;"
+                    + "tipoTratamento;");
+            gravarProd.newLine();
+            
+            for (Produto produto : produtos) {
+                gravarProd.write(String.valueOf(produto.getIDProduto()));
+                gravarProd.write(";");
+                gravarProd.write(produto.getNome());
+                gravarProd.write(String.valueOf(produto.getQuantidade()));
+                gravarProd.write(String.valueOf(produto.getPrecoVenda()));
+                if (produto instanceof Perfumaria) {
+                    gravarProd.write(((Perfumaria) produto).getCategoria());
+                    gravarProd.write(((Perfumaria) produto).getMarca());
+                    gravarProd.write(((Perfumaria) produto).getTipo());
+                    gravarProd.write(((Perfumaria) produto).getFragancia());
+                    gravarProd.write(((Perfumaria) produto).getFamiliaOlfativa());
+                }
+                if (produto instanceof CorpoBanho) {
+                    gravarProd.write(((CorpoBanho) produto).getCategoria());
+                    gravarProd.write(((CorpoBanho) produto).getMarca());
+                    gravarProd.write(((CorpoBanho) produto).getTipo());
+                    gravarProd.write(((CorpoBanho) produto).getFragancia());
+                    gravarProd.write(((CorpoBanho) produto).getFamiliaOlfativa());
+                }
+                if (produto instanceof Cabelo) {
+                    gravarProd.write(((Cabelo) produto).getCategoria());
+                    gravarProd.write(((Cabelo) produto).getMarca());
+                    gravarProd.write(((Cabelo) produto).getTipo());
+                    gravarProd.write(((Cabelo) produto).getFamiliaOlfativa());
+                    gravarProd.write(((Cabelo) produto).getTipoCabelo());
+                }
+                if (produto instanceof Rosto) {
+                    gravarProd.write(((Rosto) produto).getCategoria());
+                    gravarProd.write(((Rosto) produto).getMarca());
+                    gravarProd.write(((Rosto) produto).getTipo());
+                    gravarProd.write(((Rosto) produto).getFamiliaOlfativa());
+                    gravarProd.write(((Rosto) produto).getTipoTratamento());
+                }
+                
+                gravarProd.newLine();
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+    
     /*
     public void salvarVendas(List<Vendas> vendas) throws FileNotFoundException, 
             IOException{
