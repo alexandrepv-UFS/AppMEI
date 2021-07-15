@@ -9,33 +9,16 @@ package Sistema;
  *
  * @author Daniel Santos Rodrigues
  */
-public class Cabelo extends CosmeticoNatura{
-    private String fragancia, familiaOlfativa, tipoCabelo;
-
+public final class Cabelo extends CosmeticoNatura{
     
-    public Cabelo(String categoria, String marca, String tipo, String fragancia, String familiaOlfativa, String tipoCabelo) {
-        this.setCategoria(categoria);
-        this.setMarca(marca);
-        this.setTipo(tipo);
-        this.setFragancia(fragancia);
-        this.setFamiliaOlfativa(familiaOlfativa);
-        this.setTipoCabelo(tipoCabelo);
-    }
-    
-    public void setFragancia(String fragancia) {
-        this.fragancia = fragancia;
-    }
+    private String tipoCabelo;
 
-    public String getFragancia() {
-        return fragancia;
-    }
-
-    public void setFamiliaOlfativa(String familiaOlfativa) {
-        this.familiaOlfativa = familiaOlfativa;
-    }
-
-    public String getFamiliaOlfativa() {
-        return familiaOlfativa;
+    public Cabelo(String tipoCabelo, String categoria, String marca, 
+            String tipo, String familiaOlfativa, int IDProduto, String nome,
+            int quantidade, Double precoVenda) {
+        super(categoria, marca, tipo, familiaOlfativa, IDProduto, nome, 
+                quantidade, precoVenda);
+        this.tipoCabelo = tipoCabelo;
     }
 
     public void setTipoCabelo(String tipoCabelo) {

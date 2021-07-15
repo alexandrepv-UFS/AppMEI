@@ -1,7 +1,6 @@
 package Arquivos;
 
-import Sistema.Cliente;
-import Sistema.Endereco;
+import Sistema.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -52,7 +51,7 @@ public class LeitorArquivo {
         File file = new File(path,nome);
         file.createNewFile();
     }
-    public List importarDados(String path){
+    public List importarClientes(String path){
         
         List<Cliente> ListaClientes = new ArrayList<Cliente>(); 
         
@@ -96,5 +95,67 @@ public class LeitorArquivo {
            return ListaClientes; 
     }
     
+    public List importarProdutos(String path){
+    
+        List<Produto> ListaProdutos = new ArrayList<>();
+        
+        try (BufferedReader leitorBuf = new BufferedReader(new FileReader(path))){
+            
+            String line = leitorBuf.readLine();
+            line = leitorBuf.readLine();
+            
+             while (line != null){
+                 //preenchendo variáveis contidas na classe mãe
+                String[] cel = line.split(";");
+                int IDProduto = Integer.parseInt(cel[0]);
+                String nome = cel[1];
+                int quantidade = Integer.parseInt(cel[2]);
+                Double precoVenda = Double.parseDouble(cel[3]);
+                //preenchendo variaveis de classes finais 
+                String categoria = cel[4];
+                String marca = cel[5];
+                String tipo = cel[6];
+                String fragancia = cel[7];
+                String familiaOlfativa = cel[8];
+                String tipoCabelo = cel[9];
+                String tipoTratamento = cel[10];
+                
+                
+                Produto pro = null;
+                //escolhendo classe para instanciamento
+                
+                if (tipo.equalsIgnoreCase("perfumaria")) {
+                    pro = new Perfumaria(fragancia, categoria, marca, tipo, 
+                            familiaOlfativa, IDProduto, nome, quantidade,
+                            precoVenda);
+                }
+                if (tipo.equalsIgnoreCase("corpoBanho")) {
+                    pro = new CorpoBanho(fragancia, categoria, marca, tipo, 
+                            familiaOlfativa, IDProduto, nome, quantidade,
+                            precoVenda);
+                }
+                if (tipo.equalsIgnoreCase("cabelo")) {
+                    pro = new Cabelo(tipoCabelo, categoria, marca, tipo,
+                            familiaOlfativa,IDProduto, nome, quantidade,
+                            precoVenda);
+                }
+                if (tipo.equalsIgnoreCase("rosto")) {
+                    pro = new Cabelo(tipoTratamento, categoria, marca,
+                            tipo,familiaOlfativa, IDProduto, nome,quantidade,
+                            precoVenda);
+                }
+                
+                 line = leitorBuf.readLine();
+                //Produto pro = new Produto();
+                ListaProdutos.add(pro);
+                
+             }    
+            
+        } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+        }
+        
+        return ListaProdutos;
+    }
     
 }

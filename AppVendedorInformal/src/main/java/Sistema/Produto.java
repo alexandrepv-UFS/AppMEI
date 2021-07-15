@@ -8,25 +8,26 @@ package Sistema;
  *
  * @author Daniel Santos Rodrigues
  */
-public class Produto {
-    private double IDProduto;
-    private String nome, publico, genero, modelo, fabricante;
+public abstract class Produto {
+    private int IDProduto;
+    private String nome;
+    private double precoVenda;
+    private int quantidade;
     
     public Produto() {
         
     }
     
-    public Produto(double IDProduto, String nome, String publico
-    , String genero, String modelo, String fabricante) {
+    public Produto(int IDProduto, String nome, int quantidade,
+            Double precoVenda) {
+        
         this.IDProduto = IDProduto;
         this.nome = nome;
-        this.publico = publico;
-        this.genero = genero;
-        this.modelo = modelo;
-        this.fabricante = fabricante;
+        this.quantidade = quantidade;
+        this.precoVenda = precoVenda;
     }
     
-    public void entradaEstoque(double quantidade) {
+    public void entradaEstoque(int quantidade) {
         
     }
     
@@ -39,11 +40,11 @@ public class Produto {
     }
 
     
-    public void setIDProduto(double IDProduto) {
+    public void setIDProduto(int IDProduto) {
         this.IDProduto = IDProduto;
     }
 
-    public double getIDProduto() {
+    public int getIDProduto() {
         return IDProduto;
     }
 
@@ -55,37 +56,31 @@ public class Produto {
         return nome;
     }
 
-    public void setPublico(String publico) {
-        this.publico = publico;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public String getPublico() {
-        return publico;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    
+    public double getPrecoVenda() {
+        return precoVenda;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setPrecoVenda(double precoVenda) {
+        this.precoVenda = precoVenda;
     }
 
-    public String getGenero() {
-        return genero;
+    @Override
+    public String toString() {
+        return "Produto{" + "IDProduto=" + IDProduto + ", nome=" + nome + ", precoVenda=" + precoVenda + ", quantidade=" + quantidade + '}';
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
+    
 
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setFabricante(String fabricante) {
-        this.fabricante = fabricante;
-    }
-
-    public String getFabricante() {
-        return fabricante;
-    }
+    
+    
     
     
     

@@ -9,33 +9,16 @@ package Sistema;
  *
  * @author Daniel Santos Rodrigues
  */
-public class Rosto extends CosmeticoNatura{
-    private String fragancia, familiaOlfativa, tipoTratamento;
-
+public final class Rosto extends CosmeticoNatura{
     
-    public Rosto(String categoria, String marca, String tipo, String fragancia, String familiaOlfativa, String tipoTratamento) {
-        this.setCategoria(categoria);
-        this.setMarca(marca);
-        this.setTipo(tipo);
-        this.setFragancia(fragancia);
-        this.setFamiliaOlfativa(familiaOlfativa);
-        this.setTipoTratamento(tipoTratamento);
-    }
-    
-    public void setFragancia(String fragancia) {
-        this.fragancia = fragancia;
-    }
+    private String tipoTratamento;
 
-    public String getFragancia() {
-        return fragancia;
-    }
-
-    public void setFamiliaOlfativa(String familiaOlfativa) {
-        this.familiaOlfativa = familiaOlfativa;
-    }
-
-    public String getFamiliaOlfativa() {
-        return familiaOlfativa;
+    public Rosto(String tipoTratamento, String categoria, String marca, 
+            String tipo, String familiaOlfativa, int IDProduto, String nome,
+            int quantidade, Double precoVenda) {
+        super(categoria, marca, tipo, familiaOlfativa, IDProduto, nome,
+                quantidade, precoVenda);
+        this.tipoTratamento = tipoTratamento;
     }
 
     public void setTipoTratamento(String tipoTratamento) {

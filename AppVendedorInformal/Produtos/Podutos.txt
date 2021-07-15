@@ -1,0 +1,2 @@
+IDProdutos;nome;quantidade;precoVenda;categoria;marca;tipo;fragancia;familiaOlfativa;tipoCabelo;tipoTratamento;
+1;kaiak Pulso;5;126.90;perfumaria masculina;kaiak;perfumaria;Aromatico;null;null;null;

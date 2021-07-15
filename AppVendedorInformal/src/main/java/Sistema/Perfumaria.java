@@ -9,34 +9,41 @@ package Sistema;
  *
  * @author Daniel Santos Rodrigues
  */
-public class Perfumaria extends CosmeticoNatura{
-    private String fragancia, familiaOlfativa;
+public final class Perfumaria extends CosmeticoNatura{
+    
+    private String fragancia;
 
-    
-    public Perfumaria(String categoria, String marca, String tipo, String fragancia, String familiaOlfativa) {
-        this.setCategoria(categoria);
-        this.setMarca(marca);
-        this.setTipo(tipo);
-        this.setFragancia(fragancia);
-        this.setFamiliaOlfativa(familiaOlfativa);
-        
-    }
-    
-    public void setFragancia(String fragancia) {
+    public Perfumaria(String fragancia, String categoria, String marca, 
+            String tipo, String familiaOlfativa, int IDProduto, String nome,
+            int quantidade, Double precoVenda) {
+        super(categoria, marca, tipo, familiaOlfativa, IDProduto, nome, 
+                quantidade, precoVenda);
         this.fragancia = fragancia;
     }
-
+    
+    
     public String getFragancia() {
         return fragancia;
     }
 
-    public void setFamiliaOlfativa(String familiaOlfativa) {
-        this.familiaOlfativa = familiaOlfativa;
+    public void setFragancia(String fragancia) {
+        this.fragancia = fragancia;
     }
 
-    public String getFamiliaOlfativa() {
-        return familiaOlfativa;
+    @Override
+    public String toString() {
+        return super.toString() + "ID " +this.getIDProduto()+ "Perfumaria{" + "fragancia=" + fragancia + '}';
     }
+
+    
+    
+    
+
+    
+
+    
+    
+    
     
     
 }
