@@ -109,35 +109,58 @@ public class GravadorArquivo {
                 gravarProd.write(String.valueOf(produto.getIDProduto()));
                 gravarProd.write(";");
                 gravarProd.write(produto.getNome());
+                gravarProd.write(";");
                 gravarProd.write(String.valueOf(produto.getQuantidade()));
+                gravarProd.write(";");
                 gravarProd.write(String.valueOf(produto.getPrecoVenda()));
+                gravarProd.write(";");
+
                 if (produto instanceof Perfumaria) {
                     gravarProd.write(((Perfumaria) produto).getCategoria());
+                    gravarProd.write(";");
                     gravarProd.write(((Perfumaria) produto).getMarca());
+                    gravarProd.write(";");
                     gravarProd.write(((Perfumaria) produto).getTipo());
-                    gravarProd.write(((Perfumaria) produto).getFragancia());
+                    gravarProd.write(";null;");
                     gravarProd.write(((Perfumaria) produto).getFamiliaOlfativa());
+                    gravarProd.write(";null;null;");
+                    
                 }
                 if (produto instanceof CorpoBanho) {
                     gravarProd.write(((CorpoBanho) produto).getCategoria());
+                    gravarProd.write(";");
                     gravarProd.write(((CorpoBanho) produto).getMarca());
+                    gravarProd.write(";");
                     gravarProd.write(((CorpoBanho) produto).getTipo());
+                    gravarProd.write(";");
                     gravarProd.write(((CorpoBanho) produto).getFragancia());
+                    gravarProd.write(";");
                     gravarProd.write(((CorpoBanho) produto).getFamiliaOlfativa());
+                    gravarProd.write(";null;null;");
                 }
                 if (produto instanceof Cabelo) {
                     gravarProd.write(((Cabelo) produto).getCategoria());
+                    gravarProd.write(";");
                     gravarProd.write(((Cabelo) produto).getMarca());
+                    gravarProd.write(";");
                     gravarProd.write(((Cabelo) produto).getTipo());
+                    gravarProd.write(";null;");
                     gravarProd.write(((Cabelo) produto).getFamiliaOlfativa());
+                    gravarProd.write(";");
                     gravarProd.write(((Cabelo) produto).getTipoCabelo());
+                    gravarProd.write(";null;");
                 }
                 if (produto instanceof Rosto) {
                     gravarProd.write(((Rosto) produto).getCategoria());
+                    gravarProd.write(";");
                     gravarProd.write(((Rosto) produto).getMarca());
+                    gravarProd.write(";");
                     gravarProd.write(((Rosto) produto).getTipo());
+                    gravarProd.write(";null;");
                     gravarProd.write(((Rosto) produto).getFamiliaOlfativa());
+                    gravarProd.write(";null;");
                     gravarProd.write(((Rosto) produto).getTipoTratamento());
+                    gravarProd.write(";");
                 }
                 
                 gravarProd.newLine();

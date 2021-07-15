@@ -22,7 +22,7 @@ public class PrincipalApp {
      * @throws java.lang.NoSuchFieldException
      */
     public static void main(String[] args) throws IOException, NoSuchFieldException {
-        // TODO code application logic here
+        
         //Objeto para ler arquivos txt
         LeitorArquivo lArq = new LeitorArquivo();
         String pasta = "Clientes";
@@ -32,13 +32,18 @@ public class PrincipalApp {
         String lendoProd = "Base"+File.separator+"Produtos"+File.separator+"Produtos.txt";
         lArq.criarDiretorio(pasta);
         lArq.criarArquivos(path, nome);
+        
         //Objeto com os dados de todos os clientes
         List<Cliente> cadastrosClientes = new ArrayList<>(lArq.importarClientes(lendo));
-        //Objeto para salvar dados em arquivos do tipo txt
+        
+        //Objeto para salvar dados em arquivos do tipo txt. Metodos para
+        //clientes,produto e vendas
         GravadorArquivo save  = new GravadorArquivo();
         save.salvarClientes(cadastrosClientes);
         List<Produto> cadastroProdutos = new ArrayList<>(lArq.importarProdutos(lendoProd));
+        save.salvarProdutos(cadastroProdutos);
         
+        //imprimindo os campos dos objetos importados
         cadastroProdutos.forEach(cadastroProduto -> {
             System.out.println(cadastroProduto);
         });

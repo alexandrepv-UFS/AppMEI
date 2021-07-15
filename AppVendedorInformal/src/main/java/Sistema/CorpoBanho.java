@@ -14,7 +14,7 @@ public final class CorpoBanho extends CosmeticoNatura{
     private String fragancia;
 
     public CorpoBanho(String fragancia, String categoria, String marca, 
-            String tipo, String familiaOlfativa, double IDProduto, String nome,
+            String tipo, String familiaOlfativa, int IDProduto, String nome,
             int quantidade, Double precoVenda) {
         super(categoria, marca, tipo, familiaOlfativa, IDProduto, nome,
                 quantidade, precoVenda);

@@ -107,7 +107,7 @@ public class LeitorArquivo {
              while (line != null){
                  //preenchendo variáveis contidas na classe mãe
                 String[] cel = line.split(";");
-                Double IDProduto = Double.parseDouble(cel[0]);
+                int IDProduto = Integer.parseInt(cel[0]);
                 String nome = cel[1];
                 int quantidade = Integer.parseInt(cel[2]);
                 Double precoVenda = Double.parseDouble(cel[3]);

@@ -13,7 +13,9 @@ public abstract class CosmeticoNatura extends Produto{
     
     private String categoria, marca, tipo, familiaOlfativa;
 
-    public CosmeticoNatura(String categoria, String marca, String tipo, String familiaOlfativa, double IDProduto, String nome, int quantidade, Double precoVenda) {
+    public CosmeticoNatura(String categoria, String marca, String tipo,
+            String familiaOlfativa, int IDProduto, String nome, int quantidade,
+            Double precoVenda) {
         super(IDProduto, nome, quantidade, precoVenda);
         this.categoria = categoria;
         this.marca = marca;
@@ -53,6 +55,11 @@ public abstract class CosmeticoNatura extends Produto{
 
     public void setFamiliaOlfativa(String familiaOlfativa) {
         this.familiaOlfativa = familiaOlfativa;
+    }
+
+    @Override
+    public String toString() {
+        return "CosmeticoNatura{" + "categoria=" + categoria + ", marca=" + marca + ", tipo=" + tipo + ", familiaOlfativa=" + familiaOlfativa + '}';
     }
     
     

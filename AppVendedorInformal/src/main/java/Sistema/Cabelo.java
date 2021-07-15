@@ -14,7 +14,7 @@ public final class Cabelo extends CosmeticoNatura{
     private String tipoCabelo;
 
     public Cabelo(String tipoCabelo, String categoria, String marca, 
-            String tipo, String familiaOlfativa, double IDProduto, String nome,
+            String tipo, String familiaOlfativa, int IDProduto, String nome,
             int quantidade, Double precoVenda) {
         super(categoria, marca, tipo, familiaOlfativa, IDProduto, nome, 
                 quantidade, precoVenda);

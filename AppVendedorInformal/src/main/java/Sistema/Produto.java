@@ -9,25 +9,25 @@ package Sistema;
  * @author Daniel Santos Rodrigues
  */
 public abstract class Produto {
-    private double IDProduto;
+    private int IDProduto;
     private String nome;
     private double precoVenda;
     private int quantidade;
+    
     public Produto() {
         
     }
     
-    public Produto(double IDProduto, String nome, int quantidade,
+    public Produto(int IDProduto, String nome, int quantidade,
             Double precoVenda) {
         
         this.IDProduto = IDProduto;
         this.nome = nome;
         this.quantidade = quantidade;
         this.precoVenda = precoVenda;
-        
     }
     
-    public void entradaEstoque(double quantidade) {
+    public void entradaEstoque(int quantidade) {
         
     }
     
@@ -40,11 +40,11 @@ public abstract class Produto {
     }
 
     
-    public void setIDProduto(double IDProduto) {
+    public void setIDProduto(int IDProduto) {
         this.IDProduto = IDProduto;
     }
 
-    public double getIDProduto() {
+    public int getIDProduto() {
         return IDProduto;
     }
 
