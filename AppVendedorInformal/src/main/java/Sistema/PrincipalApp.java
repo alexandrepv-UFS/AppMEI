@@ -1,6 +1,8 @@
 
 package Sistema;
 
+import Sistema.Clientes.Cliente;
+import Sistema.Produtos.Produto;
 import Arquivos.LeitorArquivo;
 import java.io.File;
 import java.io.IOException;

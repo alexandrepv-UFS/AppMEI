@@ -5,14 +5,14 @@
  */
 package Arquivos;
 
-import Sistema.Cabelo;
-import Sistema.Cliente;
-import Sistema.CorpoBanho;
-import Sistema.CosmeticoNatura;
-import Sistema.Produto;
-import Sistema.Vendas;
-import Sistema.Perfumaria;
-import Sistema.Rosto;
+import Sistema.Produtos.Cabelo;
+import Sistema.Clientes.Cliente;
+import Sistema.Produtos.CorpoBanho;
+import Sistema.Produtos.CosmeticoNatura;
+import Sistema.Produtos.Produto;
+import Sistema.Vendas.Vendas;
+import Sistema.Produtos.Perfumaria;
+import Sistema.Produtos.Rosto;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
