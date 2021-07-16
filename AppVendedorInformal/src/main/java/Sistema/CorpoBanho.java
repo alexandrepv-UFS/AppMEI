@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Sistema;
 
 /**
  *
  * @author Daniel Santos Rodrigues
+ * @author Alexandre Pereira Vieira
  */
 public final class CorpoBanho extends CosmeticoNatura{
     
@@ -30,6 +26,21 @@ public final class CorpoBanho extends CosmeticoNatura{
 
     public void setFragancia(String fragancia) {
         this.fragancia = fragancia;
+    }
+
+    @Override
+    public void arquivar(long ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void extrair(long ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void verificarExistencia(String nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

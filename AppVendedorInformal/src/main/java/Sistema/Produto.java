@@ -77,11 +77,8 @@ public abstract class Produto {
         return "Produto{" + "IDProduto=" + IDProduto + ", nome=" + nome + ", precoVenda=" + precoVenda + ", quantidade=" + quantidade + '}';
     }
 
-    
-
-    
-    
-    
-    
+    public abstract void arquivar(long ID);
+    public abstract void extrair(long ID);
+    public abstract void verificarExistencia(String nome);
     
 }

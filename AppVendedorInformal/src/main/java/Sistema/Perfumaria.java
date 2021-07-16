@@ -35,6 +35,21 @@ public final class Perfumaria extends CosmeticoNatura{
         return super.toString() + "ID " +this.getIDProduto()+ "Perfumaria{" + "fragancia=" + fragancia + '}';
     }
 
+    @Override
+    public void arquivar(long ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void extrair(long ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void verificarExistencia(String nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     
     

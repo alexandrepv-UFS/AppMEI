@@ -6,7 +6,7 @@ import java.util.Date;
  *
  * @author Alexandre Pereira Vieira
  */
-public class Cliente {
+public class Cliente implements Arquivavel {
     
     private String pseudonimo;
     private String nome;
@@ -110,6 +110,21 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" + "pseudonimo=" + pseudonimo + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone + ", CPF=" + CPF + ", ativo=" + ativo + ", dataCadastro=" + dataCadastro + ", inativacao=" + inativacao + ", saldo=" + saldo + '}';
+    }
+
+    @Override
+    public void arquivar(long ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void extrair(long ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void verificarExistencia(String nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
