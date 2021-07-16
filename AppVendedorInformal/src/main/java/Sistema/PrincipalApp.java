@@ -1,15 +1,14 @@
 
 package Sistema;
 
+import Sistema.Clientes.Cliente;
+import Sistema.Produtos.Produto;
 import Arquivos.LeitorArquivo;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import Arquivos.GravadorArquivo;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 /**
  *
  * @author Alexandre Pereira Vieira

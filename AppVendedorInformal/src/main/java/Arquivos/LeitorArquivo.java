@@ -1,5 +1,11 @@
 package Arquivos;
 
+import Sistema.Clientes.Cliente;
+import Sistema.Clientes.Endereco;
+import Sistema.Produtos.Cabelo;
+import Sistema.Produtos.Perfumaria;
+import Sistema.Produtos.CorpoBanho;
+import Sistema.Produtos.Produto;
 import Sistema.*;
 import java.io.BufferedReader;
 import java.io.File;
