@@ -5,14 +5,21 @@
  */
 package InterfaceGrafica;
 
-import java.text.ParseException;
+
+import Sistema.Produtos.Produto;
+import Sistema.Produtos.Cabelo;
+import Sistema.Produtos.CorpoBanho;
+import Sistema.Produtos.Perfumaria;
+import Sistema.Produtos.Rosto;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.text.MaskFormatter;
+import Sistema.Produtos.RegistroCadastroProdutos;
+import java.beans.PropertyVetoException;
 
 /**
  *
  * @author Alexandre
+ * @author Daniel
  */
 public class PICadastroProdutos extends javax.swing.JInternalFrame {
 
@@ -33,24 +40,27 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLbNome = new javax.swing.JLabel();
-        jTFNome = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jLbTelefone = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jFTFPrecoVenda = new javax.swing.JFormattedTextField();
-        jCBTipo = new javax.swing.JComboBox<>();
+        txtPrecoVenda = new javax.swing.JFormattedTextField();
+        cbxTipo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jTFCategoria = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtCategoria = new javax.swing.JTextField();
+        txtMarca = new javax.swing.JTextField();
+        txtFamiliaOlfativa = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtFragancia = new javax.swing.JTextField();
+        txtTipoCabelo = new javax.swing.JTextField();
+        txtTipoTratamento = new javax.swing.JTextField();
+        btnCadastrar = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -58,9 +68,9 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
 
         jLbNome.setText("Nome");
 
-        jTFNome.addActionListener(new java.awt.event.ActionListener() {
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFNomeActionPerformed(evt);
+                txtNomeActionPerformed(evt);
             }
         });
 
@@ -68,12 +78,12 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
 
         jLabel1.setText("ID");
 
-        jFTFPrecoVenda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtPrecoVenda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
 
-        jCBTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cabelo", "Corpo Banho", "Perfumaria", "Rosto" }));
-        jCBTipo.addActionListener(new java.awt.event.ActionListener() {
+        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione...", "Cabelo", "Corpo Banho", "Perfumaria", "Rosto" }));
+        cbxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBTipoActionPerformed(evt);
+                cbxTipoActionPerformed(evt);
             }
         });
 
@@ -91,16 +101,42 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Tipo de Tratamento:");
 
-        jTextField4.setEnabled(false);
-
-        jTextField5.setEnabled(false);
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtFragancia.setEnabled(false);
+        txtFragancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txtFraganciaActionPerformed(evt);
             }
         });
 
-        jTextField6.setEnabled(false);
+        txtTipoCabelo.setEnabled(false);
+        txtTipoCabelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTipoCabeloActionPerformed(evt);
+            }
+        });
+
+        txtTipoTratamento.setEnabled(false);
+
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,24 +148,8 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLbNome)
                         .addGap(32, 32, 32)
-                        .addComponent(jTFNome)
+                        .addComponent(txtNome)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLbTelefone)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFTFPrecoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCBTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 83, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                            .addComponent(jTextField6))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -143,14 +163,39 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTFCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(38, 38, 38)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                                            .addComponent(jTextField2)
-                                            .addComponent(jTextField4))))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                            .addComponent(txtFamiliaOlfativa, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                                            .addComponent(txtMarca)
+                                            .addComponent(txtFragancia))))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLbTelefone)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPrecoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtTipoCabelo, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                                    .addComponent(txtTipoTratamento))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 83, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCadastrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnLimpar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSair)
+                .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,61 +205,135 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLbNome)
-                    .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLbTelefone)
-                    .addComponent(jFTFPrecoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCBTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTFCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFamiliaOlfativa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFragancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTipoCabelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                    .addComponent(txtTipoTratamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrar)
+                    .addComponent(btnSair)
+                    .addComponent(btnLimpar))
+                .addGap(15, 15, 15))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNomeActionPerformed
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         
         
-    }//GEN-LAST:event_jTFNomeActionPerformed
+    }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void jCBTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBTipoActionPerformed
+    private void cbxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTipoActionPerformed
         // TODO add your handling code here:
+        if(cbxTipo.getSelectedItem() == "Perfumaria" || cbxTipo.getSelectedItem() == "Corpo Banho") {
+            txtFragancia.setEnabled(true);
+        }
+        else {
+            txtFragancia.setEnabled(false);
+        }
         
-    }//GEN-LAST:event_jCBTipoActionPerformed
+        if(cbxTipo.getSelectedItem() == "Cabelo") {
+            txtTipoCabelo.setEnabled(true);
+        }
+        else {
+            txtTipoCabelo.setEnabled(false);
+        }
+        
+        if(cbxTipo.getSelectedItem() == "Rosto") {
+            txtTipoTratamento.setEnabled(true);
+        }
+        else {
+            txtTipoTratamento.setEnabled(false);
+        }
+    }//GEN-LAST:event_cbxTipoActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtTipoCabeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoCabeloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtTipoCabeloActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        try {
+            // TODO add your handling code here:
+            this.setClosed(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(PICadastroClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        RegistroCadastroProdutos cadastroProdutos = new RegistroCadastroProdutos();
+        Produto novoProduto;
+        
+        if(cbxTipo.getSelectedItem() == "Cabelo") {
+            novoProduto = new Cabelo(txtTipoCabelo.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
+                    txtFamiliaOlfativa.getText(), 1, txtNome.getText(), 2, Double.parseDouble(txtPrecoVenda.getText()));
+            
+            cadastroProdutos.cadastrar(novoProduto);
+        }
+        else if(cbxTipo.getSelectedItem() == "Corpo Banho") {
+            novoProduto = new CorpoBanho(txtFragancia.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString()
+                    , txtFamiliaOlfativa.getText(), 2, txtNome.getText(), 3, Double.parseDouble(txtPrecoVenda.getText()));
+            
+            cadastroProdutos.cadastrar(novoProduto);
+        }
+        else if(cbxTipo.getSelectedItem() == "Perfumaria") {
+            novoProduto = new Perfumaria(txtFragancia.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
+                    txtFamiliaOlfativa.getText(), 3, txtNome.getText(), 4, Double.parseDouble(txtPrecoVenda.getText()));
+            
+            cadastroProdutos.cadastrar(novoProduto);
+        }
+        else if(cbxTipo.getSelectedItem() == "Rosto") {
+            novoProduto = new Rosto(txtTipoTratamento.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
+                    txtFamiliaOlfativa.getText(), 4, txtNome.getText(), 5, Double.parseDouble(txtPrecoVenda.getText()));
+            
+            cadastroProdutos.cadastrar(novoProduto);
+        }
+        
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void txtFraganciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFraganciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFraganciaActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimparActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jCBTipo;
-    private javax.swing.JFormattedTextField jFTFPrecoVenda;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnSair;
+    private javax.swing.JComboBox<String> cbxTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -225,12 +344,13 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLbNome;
     private javax.swing.JLabel jLbTelefone;
-    private javax.swing.JTextField jTFCategoria;
-    private javax.swing.JTextField jTFNome;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtCategoria;
+    private javax.swing.JTextField txtFamiliaOlfativa;
+    private javax.swing.JTextField txtFragancia;
+    private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JFormattedTextField txtPrecoVenda;
+    private javax.swing.JTextField txtTipoCabelo;
+    private javax.swing.JTextField txtTipoTratamento;
     // End of variables declaration//GEN-END:variables
 }

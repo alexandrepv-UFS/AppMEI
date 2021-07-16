@@ -1,6 +1,6 @@
 package Sistema.Produtos;
 
-import Sistema.Produtos.Produto;
+//import Sistema.Produtos.Produto;
 import Sistema.Interfaces.Registravel;
 import Sistema.Interfaces.Arquivavel;
 import java.util.List;
@@ -39,6 +39,7 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
                 return;
             }
             // pegando dados da interfaceGrafica e colocando na List produtos
+            
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
