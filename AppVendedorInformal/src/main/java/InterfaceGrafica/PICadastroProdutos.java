@@ -292,7 +292,7 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         RegistroCadastroProdutos cadastroProdutos = new RegistroCadastroProdutos();
         Produto novoProduto;
-        
+        //começando
         if(cbxTipo.getSelectedItem() == "Cabelo") {
             novoProduto = new Cabelo(txtTipoCabelo.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
                     txtFamiliaOlfativa.getText(), 1, txtNome.getText(), 2, Double.parseDouble(txtPrecoVenda.getText()));
