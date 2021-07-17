@@ -15,8 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Sistema.Produtos.RegistroCadastroProdutos;
 import java.beans.PropertyVetoException;
-import java.text.NumberFormat;
-import java.util.Locale;
 
 /**
  *
@@ -292,7 +290,11 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        try {
+            
+        
         RegistroCadastroProdutos cadastroProdutos = new RegistroCadastroProdutos();
+        
         Produto novoProduto;
 
         if(cbxTipo.getSelectedItem() == "Cabelo") {
@@ -318,6 +320,10 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
                     txtFamiliaOlfativa.getText(), 4, txtNome.getText(), 5, Double.valueOf(this.txtPrecoVenda.getText().replace(".", "").replace(",", ".")));
             
             cadastroProdutos.cadastrar(novoProduto);
+            
+        }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed

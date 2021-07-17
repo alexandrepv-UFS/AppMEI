@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import Arquivos.GravadorArquivo;
+import Sistema.Produtos.RegistroCadastroProdutos;
 /**
  *
  * @author Alexandre Pereira Vieira
@@ -39,7 +40,13 @@ public class PrincipalApp {
         //clientes,produto e vendas
         GravadorArquivo save  = new GravadorArquivo();
         save.salvarClientes(cadastrosClientes);
-        List<Produto> cadastroProdutos = new ArrayList<>(lArq.importarProdutos(lendoProd));
+        List<Produto> cadastroProdutos;
+        cadastroProdutos = new ArrayList<>(lArq.importarProdutos(lendoProd));
+        
+        RegistroCadastroProdutos registro = new RegistroCadastroProdutos(cadastroProdutos);
+        
+        registro.cadastrar(cadastroProdutos.get(0));
+        
         save.salvarProdutos(cadastroProdutos);
         
         //imprimindo os campos dos objetos importados

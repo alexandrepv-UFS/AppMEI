@@ -99,11 +99,11 @@ public class GravadorArquivo {
     public void salvarProdutos(List<Produto> produtos){
         String path = "Base" + File.separator + "Produtos" + File.separator 
                 + "Produtos2.txt";
-        try (BufferedWriter gravarProd = new BufferedWriter(new FileWriter(path))){
-            gravarProd.write("IDProdutos;nome;quantidade;precoVenda;categoria;"
+        try (BufferedWriter gravarProd = new BufferedWriter(new FileWriter(path,true))){
+           /* gravarProd.write("IDProdutos;nome;quantidade;precoVenda;categoria;"
                     + "marca;tipo;fragancia;familiaOlfativa;tipoCabelo;"
                     + "tipoTratamento;");
-            gravarProd.newLine();
+            gravarProd.newLine();*/
             
             for (Produto produto : produtos) {
                 gravarProd.write(String.valueOf(produto.getIDProduto()));
