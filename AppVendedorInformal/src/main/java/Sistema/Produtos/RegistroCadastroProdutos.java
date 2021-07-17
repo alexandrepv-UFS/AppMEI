@@ -39,7 +39,7 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
                 return;
             }
             // pegando dados da interfaceGrafica e colocando na List produtos
-            
+            this.produtos.add(produto);
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
