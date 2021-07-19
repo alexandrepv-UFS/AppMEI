@@ -292,32 +292,40 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         RegistroCadastroProdutos cadastroProdutos = new RegistroCadastroProdutos();
         Produto novoProduto;
+        /**começando
+         * Double.parseDouble(txtPrecoVenda.getText())
+        */
         
+                
         if(cbxTipo.getSelectedItem() == "Cabelo") {
             novoProduto = new Cabelo(txtTipoCabelo.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
-                    txtFamiliaOlfativa.getText(), 1, txtNome.getText(), 2, Double.parseDouble(txtPrecoVenda.getText()));
+                    txtFamiliaOlfativa.getText(), 1, txtNome.getText(), 2,Double.parseDouble(txtPrecoVenda.getText().replace(".","").replace(",","."))  );
             
             cadastroProdutos.cadastrar(novoProduto);
+            System.out.println("Cadastrado com sucesso!");
         }
         else if(cbxTipo.getSelectedItem() == "Corpo Banho") {
             novoProduto = new CorpoBanho(txtFragancia.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString()
-                    , txtFamiliaOlfativa.getText(), 2, txtNome.getText(), 3, Double.parseDouble(txtPrecoVenda.getText()));
+                    , txtFamiliaOlfativa.getText(), 2, txtNome.getText(), 3,Double.parseDouble(txtPrecoVenda.getText().replace(".","").replace(",",".")) );
             
             cadastroProdutos.cadastrar(novoProduto);
+            System.out.println("Cadastrado com sucesso!");
         }
         else if(cbxTipo.getSelectedItem() == "Perfumaria") {
             novoProduto = new Perfumaria(txtFragancia.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
                     txtFamiliaOlfativa.getText(), 3, txtNome.getText(), 4, Double.parseDouble(txtPrecoVenda.getText()));
             
             cadastroProdutos.cadastrar(novoProduto);
+            System.out.println("Cadastrado com sucesso!");
         }
         else if(cbxTipo.getSelectedItem() == "Rosto") {
             novoProduto = new Rosto(txtTipoTratamento.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
                     txtFamiliaOlfativa.getText(), 4, txtNome.getText(), 5, Double.parseDouble(txtPrecoVenda.getText()));
             
             cadastroProdutos.cadastrar(novoProduto);
+            System.out.println("Cadastrado com sucesso!");
         }
-        
+        System.out.println(cadastroProdutos.toString());
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void txtFraganciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFraganciaActionPerformed

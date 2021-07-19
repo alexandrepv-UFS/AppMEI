@@ -3,6 +3,7 @@ package Sistema.Produtos;
 //import Sistema.Produtos.Produto;
 import Sistema.Interfaces.Registravel;
 import Sistema.Interfaces.Arquivavel;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,42 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
     
     private List<Produto> produtos;
     private List<Produto> produtosExcluidos;
+
+    public RegistroCadastroProdutos() {
+        produtos = new ArrayList();
+        produtosExcluidos = new ArrayList();
+    }
+    
+    
+    
+    public RegistroCadastroProdutos(List<Produto> produtos, List<Produto> produtosExcluidos) {
+        this.produtos = produtos;
+        this.produtosExcluidos = produtosExcluidos;
+    }
+    
+    
+    
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public List<Produto> getProdutosExcluidos() {
+        return produtosExcluidos;
+    }
+
+    public void setProdutosExcluidos(List<Produto> produtosExcluidos) {
+        this.produtosExcluidos = produtosExcluidos;
+    }
+
+    @Override
+    public String toString() {
+        return "RegistroCadastroProdutos{" + "produtos=" + produtos + ", produtosExcluidos=" + produtosExcluidos + '}';
+    }
+    
     
     @Override
     public boolean verificarDuplicidade(Produto produto) {
@@ -39,7 +76,7 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
                 return;
             }
             // pegando dados da interfaceGrafica e colocando na List produtos
-            
+            this.produtos.add(produto);
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
