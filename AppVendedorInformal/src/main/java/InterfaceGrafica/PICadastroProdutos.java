@@ -325,7 +325,7 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
             cadastroProdutos.cadastrar(novoProduto);
             System.out.println("Cadastrado com sucesso!");
         }
-        novoProduto.toString();
+        System.out.println(cadastroProdutos.toString());
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void txtFraganciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFraganciaActionPerformed
