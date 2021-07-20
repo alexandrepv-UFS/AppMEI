@@ -1,6 +1,7 @@
 package Sistema.Produtos;
 
 //import Sistema.Produtos.Produto;
+import Arquivos.GravadorArquivo;
 import Sistema.Interfaces.Registravel;
 import Sistema.Interfaces.Arquivavel;
 import java.util.ArrayList;
@@ -22,9 +23,10 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
     
     
     
-    public RegistroCadastroProdutos(List<Produto> produtos, List<Produto> produtosExcluidos) {
-        this.produtos = produtos;
-        this.produtosExcluidos = produtosExcluidos;
+    public RegistroCadastroProdutos(List<Produto> produtos) {
+        produtos = new ArrayList();
+        produtosExcluidos = new ArrayList();
+        this.iniciar(produtos);
     }
     
     
@@ -69,40 +71,87 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
     
 
     @Override
-    public void cadastrar(Produto produto) {
+    public boolean cadastrar(Produto produto) {
         try {
             if (verificarDuplicidade(produto)) {
                 System.out.println("Produto já cadastrado");
-                return;
+                return false;
             }
             // pegando dados da interfaceGrafica e colocando na List produtos
             this.produtos.add(produto);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    @Override
+    public boolean excluir(Produto produto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean arquivar(String nome) {
+        try {
+            for (Produto produto : produtos) {
+                if (produto.getNome().equalsIgnoreCase(nome)) {
+                    return false;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        GravadorArquivo gravar = new GravadorArquivo();
+        gravar.salvarProdutos(produtos);
+        return true;
+    }
+
+    @Override
+    public boolean extrair(String nome) {
+        try {
+           for (Produto produto : produtos) {
+                if (produto.getNome().equalsIgnoreCase(nome)) {
+                    this.produtosExcluidos.add(produto);
+                    this.produtos.remove(produto);
+                    return true;
+                }
+            } 
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        return false;
     }
 
     @Override
-    public void excluir(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean verificarExistencia(String nome) {
+        try {
+            for (Produto produto : this.produtos) {
+                if (produto.getNome().equalsIgnoreCase(nome)) {
+                  return true;  
+                }
+            }
+            for (Produto produto : this.produtos) {
+                if (produto.getNome().equalsIgnoreCase(nome)) {
+                  return true;  
+                }
+            }
+            
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return false;
     }
 
-    @Override
-    public void arquivar(long ID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void iniciar(List<Produto> produtosJuntos){
+        for (Produto produtosJunto : produtosJuntos) {
+            if (produtosJunto.getQuantidade() == 0) {
+                this.produtosExcluidos.add(produtosJunto);
+            } else {
+                this.produtos.add(produtosJunto);
+            }
+        }
     }
-
-    @Override
-    public void extrair(long ID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void verificarExistencia(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
     
 }

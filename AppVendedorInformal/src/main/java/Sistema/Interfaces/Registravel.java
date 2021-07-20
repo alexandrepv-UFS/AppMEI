@@ -8,6 +8,6 @@ import Sistema.Produtos.Produto;
  */
 public interface Registravel {
     public boolean verificarDuplicidade(Produto produto);
-    public void cadastrar(Produto produto);
-    public void excluir(Produto produto);
+    public boolean cadastrar(Produto produto);
+    public boolean excluir(Produto produto);
 }

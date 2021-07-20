@@ -31,12 +31,12 @@ public class RegistroCadastroClientes implements Imprimivel,Registravel {
     }
 
     @Override
-    public void cadastrar(Produto produto) {
+    public boolean cadastrar(Produto produto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void excluir(Produto produto) {
+    public boolean excluir(Produto produto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

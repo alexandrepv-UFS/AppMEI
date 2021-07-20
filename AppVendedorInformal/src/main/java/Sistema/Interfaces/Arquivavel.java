@@ -5,7 +5,7 @@ package Sistema.Interfaces;
  * @author Alexandre Pereira Vieira
  */
 public interface Arquivavel {
-    public void arquivar(long ID);
-    public void extrair(long ID);
-    public void verificarExistencia(String nome);
+    public boolean arquivar(String nome);
+    public boolean extrair(String nome);
+    public boolean verificarExistencia(String nome);
 }

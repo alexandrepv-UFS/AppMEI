@@ -26,8 +26,11 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
     /**
      * Creates new form CadastroProdutos
      */
-    public PICadastroProdutos() {
+    private RegistroCadastroProdutos cadastroProdutos;
+    public PICadastroProdutos(RegistroCadastroProdutos cadastroProd) {
         initComponents();
+        cadastroProdutos = new Sistema.Produtos.RegistroCadastroProdutos();
+        this.cadastroProdutos = cadastroProd;
     }
 
     /**
@@ -290,7 +293,7 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        RegistroCadastroProdutos cadastroProdutos = new RegistroCadastroProdutos();
+        //RegistroCadastroProdutos cadastroProdutos = new RegistroCadastroProdutos();
         Produto novoProduto;
         /**começando
          * Double.parseDouble(txtPrecoVenda.getText())
@@ -302,6 +305,7 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
                     txtFamiliaOlfativa.getText(), 1, txtNome.getText(), 2,Double.parseDouble(txtPrecoVenda.getText().replace(".","").replace(",","."))  );
             
             cadastroProdutos.cadastrar(novoProduto);
+            cadastroProdutos.arquivar(novoProduto.getNome());
             System.out.println("Cadastrado com sucesso!");
         }
         else if(cbxTipo.getSelectedItem() == "Corpo Banho") {
@@ -313,14 +317,14 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
         }
         else if(cbxTipo.getSelectedItem() == "Perfumaria") {
             novoProduto = new Perfumaria(txtFragancia.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
-                    txtFamiliaOlfativa.getText(), 3, txtNome.getText(), 4, Double.parseDouble(txtPrecoVenda.getText()));
+                    txtFamiliaOlfativa.getText(), 3, txtNome.getText(), 4, Double.parseDouble(txtPrecoVenda.getText().replace(".","").replace(",",".")) );
             
             cadastroProdutos.cadastrar(novoProduto);
             System.out.println("Cadastrado com sucesso!");
         }
         else if(cbxTipo.getSelectedItem() == "Rosto") {
             novoProduto = new Rosto(txtTipoTratamento.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
-                    txtFamiliaOlfativa.getText(), 4, txtNome.getText(), 5, Double.parseDouble(txtPrecoVenda.getText()));
+                    txtFamiliaOlfativa.getText(), 4, txtNome.getText(), 5, Double.parseDouble(txtPrecoVenda.getText().replace(".","").replace(",",".")) );
             
             cadastroProdutos.cadastrar(novoProduto);
             System.out.println("Cadastrado com sucesso!");

@@ -114,17 +114,17 @@ public class Cliente implements Arquivavel {
     }
 
     @Override
-    public void arquivar(long ID) {
+    public boolean arquivar(String nome) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void extrair(long ID) {
+    public boolean extrair(String nome) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void verificarExistencia(String nome) {
+    public boolean verificarExistencia(String nome) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

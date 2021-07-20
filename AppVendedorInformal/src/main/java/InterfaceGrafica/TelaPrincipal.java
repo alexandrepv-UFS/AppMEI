@@ -5,6 +5,10 @@
  */
 package InterfaceGrafica;
 
+import Arquivos.LeitorArquivo;
+import Sistema.Produtos.RegistroCadastroProdutos;
+import java.io.File;
+
 /**
  *
  * @author Alexandre
@@ -14,9 +18,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form TelaPrincipal
      */
+    //Importando produtos de Produtos.txt
+    String lendoProd = "Base"+File.separator+"Produtos"+File.separator+"Produtos.txt";
+    LeitorArquivo leitorArquivo = new LeitorArquivo();
+    RegistroCadastroProdutos regCadProd= new RegistroCadastroProdutos(leitorArquivo.importarProdutos(lendoProd));
+    
+    
     public TelaPrincipal() {
         initComponents();
+        
     }
+
+    public RegistroCadastroProdutos getRegCadProd() {
+        return regCadProd;
+    }
+
+    public void setRegCadProd(RegistroCadastroProdutos regCadProd) {
+        this.regCadProd = regCadProd;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -169,7 +190,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuCadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadastroProdutoActionPerformed
         // TODO add your handling code here:
-        PICadastroProdutos novo = new PICadastroProdutos();
+        PICadastroProdutos novo = new PICadastroProdutos(this.getRegCadProd());
         jDPPrincipal.add(novo);
         novo.setVisible(true);
     }//GEN-LAST:event_jMenuCadastroProdutoActionPerformed
