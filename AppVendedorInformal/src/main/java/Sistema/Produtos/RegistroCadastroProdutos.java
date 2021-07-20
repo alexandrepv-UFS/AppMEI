@@ -53,7 +53,6 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
     }
     
     
-    @Override
     public boolean verificarDuplicidade(Produto produto) {
         
         boolean check = false;
@@ -70,7 +69,6 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
     }
     
 
-    @Override
     public boolean cadastrar(Produto produto) {
         try {
             if (verificarDuplicidade(produto)) {
@@ -86,12 +84,10 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
         return false;
     }
 
-    @Override
     public boolean excluir(Produto produto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public boolean arquivar(String nome) {
         try {
             for (Produto produto : produtos) {
@@ -107,7 +103,6 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
         return true;
     }
 
-    @Override
     public boolean extrair(String nome) {
         try {
            for (Produto produto : produtos) {
@@ -124,7 +119,7 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
         return false;
     }
 
-    @Override
+    
     public boolean verificarExistencia(String nome) {
         try {
             for (Produto produto : this.produtos) {
@@ -152,6 +147,36 @@ public class RegistroCadastroProdutos implements Registravel, Arquivavel {
                 this.produtos.add(produtosJunto);
             }
         }
+    }
+
+    @Override
+    public boolean verificarDuplicidade() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean cadastrar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean excluir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean arquivar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean extrair() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean verificarExistencia() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

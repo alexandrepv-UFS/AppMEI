@@ -86,6 +86,11 @@ public class PICadastroClientes extends javax.swing.JInternalFrame {
         });
 
         jBtSalvar.setText("Salvar");
+        jBtSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtSalvarActionPerformed(evt);
+            }
+        });
 
         jBtSair.setText("Sair");
         jBtSair.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +226,6 @@ public class PICadastroClientes extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(26, 26, 26)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel7))
@@ -268,6 +272,11 @@ public class PICadastroClientes extends javax.swing.JInternalFrame {
     private void jFTFTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFTFTelefoneActionPerformed
+
+    private void jBtSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtSalvarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jBtSalvarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

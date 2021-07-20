@@ -113,18 +113,19 @@ public class Cliente implements Arquivavel {
         return "Cliente{" + "pseudonimo=" + pseudonimo + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone + ", CPF=" + CPF + ", ativo=" + ativo + ", dataCadastro=" + dataCadastro + ", inativacao=" + inativacao + ", saldo=" + saldo + '}';
     }
 
+
     @Override
-    public boolean arquivar(String nome) {
+    public boolean arquivar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean extrair(String nome) {
+    public boolean extrair() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean verificarExistencia(String nome) {
+    public boolean verificarExistencia() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

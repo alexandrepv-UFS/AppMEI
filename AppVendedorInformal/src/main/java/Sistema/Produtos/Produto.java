@@ -8,7 +8,7 @@ package Sistema.Produtos;
  *
  * @author Daniel Santos Rodrigues
  */
-public abstract class Produto {
+public abstract class Produto  {
     private int IDProduto;
     private String nome;
     private double precoVenda;

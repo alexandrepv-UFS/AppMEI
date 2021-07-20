@@ -1,2 +1,1 @@
 IDProdutos;nome;quantidade;precoVenda;categoria;marca;tipo;fragancia;familiaOlfativa;tipoCabelo;tipoTratamento;
-1.0;kaiak Pulso;5;126.9;perfumaria masculina;kaiak;perfumaria;null;Aromatico;null;null;

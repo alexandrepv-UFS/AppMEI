@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Alexandre P Vieira
  */
-public class RegistroCadastroClientes implements Imprimivel,Registravel {
+public class RegistroCadastroClientes implements Imprimivel {
     
     private List<Cliente> registroClientes;
     private List<Cliente> registroClientesExcluidos;
@@ -25,20 +25,7 @@ public class RegistroCadastroClientes implements Imprimivel,Registravel {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public boolean verificarDuplicidade(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean cadastrar(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean excluir(Produto produto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
    
     

@@ -32,7 +32,19 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
         cadastroProdutos = new Sistema.Produtos.RegistroCadastroProdutos();
         this.cadastroProdutos = cadastroProd;
     }
-
+    
+    public void limpar(){
+        cbxTipo.setSelectedIndex(0);
+        txtCategoria.setText("");
+        txtNome.setText("");
+        txtCategoria.setText("");
+        txtFamiliaOlfativa.setText("");
+        txtFragancia.setText("");
+        txtMarca.setText("");
+        txtPrecoVenda.setText("");
+        txtTipoCabelo.setText("");
+        
+    }    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -295,6 +307,7 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         //RegistroCadastroProdutos cadastroProdutos = new RegistroCadastroProdutos();
         Produto novoProduto;
+        novoProduto = null;
         /**começando
          * Double.parseDouble(txtPrecoVenda.getText())
         */
@@ -306,29 +319,29 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
             
             cadastroProdutos.cadastrar(novoProduto);
             cadastroProdutos.arquivar(novoProduto.getNome());
-            System.out.println("Cadastrado com sucesso!");
         }
         else if(cbxTipo.getSelectedItem() == "Corpo Banho") {
             novoProduto = new CorpoBanho(txtFragancia.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString()
                     , txtFamiliaOlfativa.getText(), 2, txtNome.getText(), 3,Double.parseDouble(txtPrecoVenda.getText().replace(".","").replace(",",".")) );
             
             cadastroProdutos.cadastrar(novoProduto);
-            System.out.println("Cadastrado com sucesso!");
         }
         else if(cbxTipo.getSelectedItem() == "Perfumaria") {
             novoProduto = new Perfumaria(txtFragancia.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
                     txtFamiliaOlfativa.getText(), 3, txtNome.getText(), 4, Double.parseDouble(txtPrecoVenda.getText().replace(".","").replace(",",".")) );
             
             cadastroProdutos.cadastrar(novoProduto);
-            System.out.println("Cadastrado com sucesso!");
         }
         else if(cbxTipo.getSelectedItem() == "Rosto") {
             novoProduto = new Rosto(txtTipoTratamento.getText(), txtCategoria.getText(), txtMarca.getText(), cbxTipo.getSelectedItem().toString(),
                     txtFamiliaOlfativa.getText(), 4, txtNome.getText(), 5, Double.parseDouble(txtPrecoVenda.getText().replace(".","").replace(",",".")) );
             
             cadastroProdutos.cadastrar(novoProduto);
-            System.out.println("Cadastrado com sucesso!");
         }
+        //Verificando 
+        
+        cadastroProdutos.arquivar(novoProduto.getNome());
+        this.limpar();
         System.out.println(cadastroProdutos.toString());
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -337,7 +350,7 @@ public class PICadastroProdutos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtFraganciaActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
+        this.limpar();
     }//GEN-LAST:event_btnLimparActionPerformed
 
 
